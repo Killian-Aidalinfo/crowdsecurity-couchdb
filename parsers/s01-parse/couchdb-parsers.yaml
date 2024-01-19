@@ -1,6 +1,6 @@
 # debug: true
 filter: "evt.Parsed.program == 'couchdb'"
-name: crowdsecurity/couchdb-log-node
+name: aidalinfo/couchdb-log-node
 description: "First step get IP, User, time and IP from couchdb logs"
 nodes:
   - grok:
@@ -18,7 +18,7 @@ nodes:
 ---
 onsuccess: next_stage
 filter: "evt.Meta.stage_log == 'root-done'"
-name: crowdsecurity/couchdb-log-subnode
+name: aidalinfo/couchdb-log-subnode
 description: "Second step sort if is bruteforce, scrawl or bruteforce on existing db"
 # debug: true
 #the sub-nodes will sort the result of the master node and add log_type
