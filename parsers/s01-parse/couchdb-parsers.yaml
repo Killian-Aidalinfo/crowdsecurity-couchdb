@@ -19,7 +19,7 @@ nodes:
 onsuccess: next_stage
 filter: "evt.Meta.stage_log == 'root-done'"
 name: aidalinfo/couchdb-log-subnode
-description: "Second step sort if is bruteforce, scrawl or bruteforce on existing db"
+description: "Second step sort if is bruteforce, crawl or bruteforce on existing db"
 # debug: true
 #the sub-nodes will sort the result of the master node and add log_type
 nodes:
@@ -32,9 +32,9 @@ nodes:
     debug: false
     statics:
       - meta: log_type
-        value: scrawl-couchdb
+        value: crawl-couchdb
   - filter: "evt.Parsed.http_status_code == '403'"
     debug: false
     statics:
       - meta: log_type
-        value: bf-db-couchdb
+        value: bf-ondb-couchdb
