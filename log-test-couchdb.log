@@ -1,0 +1,19 @@
+
+
+## Brute for on existing DB
+[notice] 2024-01-19T17:23:16.652005Z nonode@nohost <0.8884.1> a286c5f2a2 preview.couchdb.domain.fr 1.2.3.4 root GET /traceapis/ 403 ok 6
+\[notice\] %{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA} %{IP:client_ip} %{WORD:user_field} %{WORD:http_method} %{URIPATHPARAM:request} 403 ok %{NUMBER:couch_code}
+
+##Scrawl DB
+[notice] 2024-01-19T17:23:27.921511Z nonode@nohost <0.8985.1> fd829a5bac preview.couchdb.domain.fr 1.2.3.4 root GET /test/ 404 ok 3
+[notice] 2024-01-19T17:23:37.740488Z nonode@nohost <0.9075.1> 164377900a preview.couchdb.domain.fr 1.2.3.4 root GET /allow 404 ok 1
+\[notice\] %{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA} %{IP:client_ip} %{WORD:user_field} %{WORD:http_method} %{URIPATHPARAM:request} 404 ok %{NUMBER:couch_code}
+
+##
+Brute Force Account
+notice] 2024-01-19T18:10:42.373712Z nonode@nohost <0.32572.1> 3b0034fcd1 preview.couchdb.domain.fr 1.2.3.4 undefined GET / 401 ok 6
+[notice] 2024-01-19T18:10:49.291937Z nonode@nohost <0.32632.1> ce1bcf9039 preview.couchdb.domain.fr 1.2.3.4 undefined GET / 401 ok 2
+[notice] 2024-01-19T18:10:55.691610Z nonode@nohost <0.32572.1> b6c2d428e0 preview.couchdb.domain.fr 1.2.3.4 undefined GET / 401 ok 1
+\[notice\] %{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA} %{IP:client_ip} %{WORD:user_field} %{WORD:http_method} %{URIPATHPARAM:request} 401 ok %{NUMBER:couch_code}
+
+\[notice\] %{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA} %{IP:client_ip} %{WORD:undefined_field} %{WORD:http_method} %{URIPATHPARAM:request} %{NUMBER:http_status_code}
