@@ -1,24 +1,3 @@
-# couchdb scrawl
-type: leaky
-name: aidalinfo/couchdb-bf-ondb
-description: "Detect couchdb bruteforce on existing db"
-filter: evt.Meta.log_type == 'bf-ondb-couchdb'
-leakspeed: "10s"
-references:
-  # - http://wikipedia.com/ssh-bf-is-bad
-capacity: 5
-groupby: evt.Meta.source_ip
-blackhole: 1m
-reprocess: true
-labels:
-  service: couchdb
-  confidence: 3
-  spoofable: 0
-  classification:
-    # - attack.T1110
-  label: "SSH Bruteforce"
-  remediation: true
----
 type: leaky
 name: aidalinfo/couchdb-crawl
 description: "Detect crawl from single ip"
