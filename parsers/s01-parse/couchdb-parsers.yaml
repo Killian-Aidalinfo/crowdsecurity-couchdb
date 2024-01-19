@@ -1,0 +1,41 @@
+# onsuccess: next_stage
+debug: true
+filter: "evt.Parsed.program == 'couchdb'"
+name: crowdsecurity/couchdb-log-node
+description: "First step get IP, User, time and IP from couchdb logs"
+nodes:
+  - grok:
+      pattern: '\[notice\] %{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA} %{IP:source_ip} %{WORD:user_field} %{WORD:http_method} %{URIPATHPARAM:request} %{NUMBER:http_status_code}'
+      apply_on: message
+      statics:
+        - meta: stage_log
+          value: root-done
+        - meta: target_user
+          expression: "evt.Parsed.user_field"
+        - meta: source_ip
+          expression: "evt.Parsed.source_ip"
+        - target: evt.StrTime
+          expression: evt.Parsed.timestamp
+---
+onsuccess: next_stage
+filter: "evt.Meta.stage_log == 'root-done'"
+name: crowdsecurity/couchdb-log-subnode
+description: "Second step sort if is bruteforce, scrawl or bruteforce on existing db"
+debug: true
+#the sub-nodes will process the result of the master node
+nodes:
+  - filter: "evt.Parsed.http_status_code == '401'"
+    debug: true
+    statics:
+      - meta: log_type
+        value: bf-couchdb
+  - filter: "evt.Parsed.http_status_code == '404'"
+    debug: true
+    statics:
+      - meta: log_type
+        value: scrawl-couchdb
+  - filter: "evt.Parsed.http_status_code == '403'"
+    debug: true
+    statics:
+      - meta: log_type
+        value: bf-db-couchdb
