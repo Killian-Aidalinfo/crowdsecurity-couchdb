@@ -1,5 +1,4 @@
-# onsuccess: next_stage
-debug: true
+# debug: true
 filter: "evt.Parsed.program == 'couchdb'"
 name: crowdsecurity/couchdb-log-node
 description: "First step get IP, User, time and IP from couchdb logs"
@@ -21,21 +20,21 @@ onsuccess: next_stage
 filter: "evt.Meta.stage_log == 'root-done'"
 name: crowdsecurity/couchdb-log-subnode
 description: "Second step sort if is bruteforce, scrawl or bruteforce on existing db"
-debug: true
-#the sub-nodes will process the result of the master node
+# debug: true
+#the sub-nodes will sort the result of the master node and add log_type
 nodes:
   - filter: "evt.Parsed.http_status_code == '401'"
-    debug: true
+    debug: false
     statics:
       - meta: log_type
         value: bf-couchdb
   - filter: "evt.Parsed.http_status_code == '404'"
-    debug: true
+    debug: false
     statics:
       - meta: log_type
         value: scrawl-couchdb
   - filter: "evt.Parsed.http_status_code == '403'"
-    debug: true
+    debug: false
     statics:
       - meta: log_type
         value: bf-db-couchdb
