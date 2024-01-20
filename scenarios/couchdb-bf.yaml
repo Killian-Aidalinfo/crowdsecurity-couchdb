@@ -1,8 +1,8 @@
 # couchdb slow bruteforce
 type: leaky
 name: aidalinfo/couchdb-slow-bf
-description: "Detect slow Couchdb bruteforce"
-filter: "evt.Meta.log_type == 'bf-couchdb'"
+description: "Detect slow Couchdb bruteforce/enum"
+filter: "evt.Meta.log_type == 'bf-enum-couchdb'"
 leakspeed: "60s"
 capacity: 10
 groupby: evt.Meta.source_ip
@@ -20,8 +20,8 @@ labels:
 # couchdb bruteforce
 type: leaky
 name: aidalinfo/couchdb-bf
-description: "Detect couchdb bruteforce"
-filter: evt.Meta.log_type == 'bf-couchdb'
+description: "Detect couchdb bruteforce/enum"
+filter: evt.Meta.log_type == 'bf-enum-couchdb'
 leakspeed: "10s"
 capacity: 5
 groupby: evt.Meta.source_ip

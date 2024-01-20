@@ -29,14 +29,14 @@ nodes:
     debug: false
     statics:
       - meta: log_type
-        value: bf-couchdb
+        value: bf-enum-couchdb
   - filter: "evt.Parsed.http_status_code == '404'"
     debug: false
     statics:
       - meta: log_type
         value: crawl-couchdb
-  - filter: "evt.Parsed.http_status_code == '403'"
-    debug: false
-    statics:
-      - meta: log_type
-        value: bf-ondb-couchdb
+  # - filter: "evt.Parsed.http_status_code == '403'"
+  #   debug: false
+  #   statics:
+  #     - meta: log_type
+  #       value: bf-ondb-couchdb
