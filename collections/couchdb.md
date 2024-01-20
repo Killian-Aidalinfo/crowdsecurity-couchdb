@@ -10,7 +10,7 @@ A collection to defend [CouchDB](https://couchdb.apache.org/).
 
 # CouchDB Configuration
 
-Enable log, if you want set level log, is it 'notice' needed.
+Enable logging
 
 ```
 [log]
