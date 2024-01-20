@@ -1,6 +1,7 @@
+## Brute force on existing user :
+[warning] 2024-01-20T01:35:56.421390Z nonode@nohost <0.18547.1> b4f2ea909b couch_httpd_auth: Authentication failed for user admin from 1.2.3.4
 
-
-## Brute for on existing DB
+## Brute for on existing DB with X-Auth
 [notice] 2024-01-19T17:23:16.652005Z nonode@nohost <0.8884.1> a286c5f2a2 preview.couchdb.domain.fr 1.2.3.4 root GET /traceapis/ 403 ok 6
 \[notice\] %{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA} %{IP:client_ip} %{WORD:user_field} %{WORD:http_method} %{URIPATHPARAM:request} 403 ok %{NUMBER:couch_code}
 
