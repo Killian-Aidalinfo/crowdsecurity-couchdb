@@ -1,6 +1,6 @@
 # CouchDB
 
-A collection to defend CouchDB.
+A collection to defend [CouchDB](https://couchdb.apache.org/).
 
 ## Features :
 
