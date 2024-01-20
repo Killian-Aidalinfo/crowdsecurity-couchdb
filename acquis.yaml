@@ -1,10 +1,5 @@
-
-## Kubernetes acquisition
 ---
 filenames:
-  - /var/log/containers/couchdb*.log
-force_inotify: true
-poll_without_inotify: true
+  - /tmp/couch.log
 labels:
-  type: containerd
-  program: couchdb
+  type: couchdb
